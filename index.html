@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="materialize/css/materialize.min.css">
+    <title>Ordenação</title>
+
+    <style>
+        * {
+            color: grey;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        }
+
+        .card-body {
+            margin: 1rem;
+        }
+
+        .sort-title {
+            font-size: 2rem;
+        }
+
+        .nav-container {
+            height: 10rem;
+        }
+
+        .nav-bar {
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.39);
+        }
+
+        .nav-bar,
+        nav .brand-logo {
+            position: fixed;
+            z-index: 50;
+            color: #4a148c;
+        }
+
+        nav ul li {
+            padding-left: 1rem;
+        }
+        .row .col{
+            padding-left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav-container">
+        <nav class="nav-bar">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">Algoritmos de Ordenação</a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <div class="input-field col s2 m2">
+                            <input id="input-list-length" type="text" class="validate" value="120">
+                            <label for="input-list-length">Tamanho da Lista</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-field col s2 m2">
+                            <input id="delay-input" type="number" class="validate" value="1">
+                            <label for="delay-input">Delay (ms)</label>
+                        </div>
+                    </li>
+                    <li>
+                        <button id="btn-set-random-list" class="btn waves-effect waves-light purple darken-4"
+                            type="button">GERAR LISTA ALEATÓRIA</button>
+                    </li>
+                    <li>
+                        <button id="btn-set-decreasing-list" class="btn waves-effect waves-light purple darken-4"
+                            type="button">GERAR LISTA DECRESCENTE</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card white">
+                <div class="card-content">
+                    <span class="card-title">Lista Aleatória</span>
+                    <div style="overflow-wrap: break-word;" class="row" id="insertion-sort-list-container"></div>
+
+                    <div class="divider"></div>
+
+                    <div id="insertion-sort-container" class="card-body">
+                        <div class="row">
+
+                            <span class="col s1 m3"><span class="sort-title">Insertion Sort</span></span>
+                            <button id="btn-ord-insertion-sort" class="btn waves-effect waves-light purple darken-4"
+                                name="action">Ordenar</button>
+                        </div>
+
+                        <div id="insertion-sort-visual-representation-container" class="row"></div>
+
+                        <div style="overflow-wrap: break-word;" id="insertion-sort-numeric-sorted-list"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card white">
+                <div class="card-content">
+                    <span class="card-title">Lista Aleatória</span>
+                    <div style="overflow-wrap: break-word;" class="row" id="bubble-sort-list-container"></div>
+
+                    <div class="divider"></div>
+
+                    <div id="insertion-sort-container" class="card-body">
+                        <div class="row">
+
+                            <span class="col s1 m3"><span class="sort-title">Bubble Sort</span></span>
+                            <button id="btn-ord-bubble-sort" class="btn waves-effect waves-light purple darken-4"
+                                name="action">Ordenar</button>
+                        </div>
+
+                        <div id="bubble-sort-visual-representation-container" class="row"></div>
+
+                        <div style="overflow-wrap: break-word;" id="bubble-sort-numeric-sorted-list"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card white">
+                <div class="card-content">
+                    <span class="card-title">Lista Aleatória</span>
+                    <div style="overflow-wrap: break-word;" class="row" id="selection-sort-list-container"></div>
+
+                    <div class="divider"></div>
+
+                    <div id="insertion-sort-container" class="card-body">
+                        <div class="row">
+
+                            <span class="col s1 m3"><span class="sort-title">Selection Sort</span></span>
+                            <button id="btn-ord-selection-sort" class="btn waves-effect waves-light purple darken-4"
+                                name="action">Ordenar</button>
+                        </div>
+
+                        <div id="selection-sort-visual-representation-container" class="row"></div>
+
+                        <div style="overflow-wrap: break-word;" id="selection-sort-numeric-sorted-list"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card white">
+                <div class="card-content">
+                    <span class="card-title">Lista Aleatória</span>
+                    <div style="overflow-wrap: break-word;" class="row" id="comb-sort-list-container"></div>
+
+                    <div class="divider"></div>
+
+                    <div id="comb-sort-container" class="card-body">
+                        <div class="row">
+
+                            <span class="col s1 m3"><span class="sort-title">Comb Sort</span></span>
+                            <button id="btn-ord-comb-sort" class="btn waves-effect waves-light purple darken-4"
+                                name="action">Ordenar</button>
+                        </div>
+
+                        <div id="comb-sort-visual-representation-container" class="row"></div>
+
+                        <div style="overflow-wrap: break-word;" id="comb-sort-numeric-sorted-list"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card white">
+                <div class="card-content">
+                    <span class="card-title">Lista Aleatória</span>
+                    <div style="overflow-wrap: break-word;" class="row" id="merge-sort-list-container"></div>
+
+                    <div class="divider"></div>
+
+                    <div id="merge-sort-container" class="card-body">
+                        <div class="row">
+
+                            <span class="col s1 m3"><span class="sort-title">Merge Sort</span></span>
+                            <button id="btn-ord-merge-sort" class="btn waves-effect waves-light purple darken-4"
+                                name="action">Ordenar</button>
+                        </div>
+
+                        <div id="merge-sort-visual-representation-container" class="row"></div>
+
+                        <div style="overflow-wrap: break-word;" id="merge-sort-numeric-sorted-list"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer></footer>
+
+
+    <script src="materialize/js/materialize.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
