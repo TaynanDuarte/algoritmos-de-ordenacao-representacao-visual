@@ -234,11 +234,42 @@
     </div>
 
 
+
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card white">
+                <div class="card-content">
+                    <span class="card-title">Lista Aleatória</span>
+                    <div style="overflow-wrap: break-word;" class="row" id="quick-sort-list-container"></div>
+
+                    <div class="divider"></div>
+
+                    <div id="quick-sort-container" class="card-body">
+                        <div class="row">
+
+                            <span class="col s1 m3"><span class="sort-title">Quick Sort</span></span>
+                            <button id="btn-ord-quick-sort" class="btn waves-effect waves-light purple darken-4"
+                                name="action">Ordenar</button>
+                        </div>
+
+                        <div id="quick-sort-visual-representation-container" class="row"></div>
+
+                        <div style="overflow-wrap: break-word;" id="quick-sort-numeric-sorted-list"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer></footer>
 
-
     <script src="materialize/js/materialize.min.js"></script>
-    <script src="index.js"></script>
+    <script src="src/utils.js"></script>
+    <script src="src/visual-representation.js"></script>
+    <script src="src/sorting-algorithms.js"></script>
+    <script src="index-controller.js"></script>
 </body>
 
 </html>
